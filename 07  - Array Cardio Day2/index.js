@@ -23,21 +23,21 @@ let isAdult = people.some(function (person) {
     return true;
   }
 });
+console.log({ isAdult });
 
 isAdult = people.some((person) => {
   const currentYear = new Date().getFullYear();
   return currentYear - person.year >= 19;
 });
+console.log({ isAdult });
 
 isAdult = people.some((person) => new Date().getFullYear() - person.year >= 19);
-
 console.log({ isAdult });
 
 // Array.prototype.every() // is everyone 19 or older?
 isAdult = people.every(
   (person) => new Date().getFullYear() - person.year >= 19
 );
-
 console.log({ isAdult });
 
 // Array.prototype.find()
@@ -48,6 +48,7 @@ let comment = comments.find(function (cmt) {
     return true;
   }
 });
+console.log(comment);
 
 comment = comments.find((cmt) => cmt.id === 823423);
 console.log(comment);
