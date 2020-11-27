@@ -19,9 +19,10 @@ function findMatches(wordToMatch, citiesArr) {
 const searchInput = document.querySelector(".search");
 const suggestions = document.querySelector(".suggestions");
 
-// stackoverflow
 function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // stackoverflow
+  // return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parseInt(x, 10).toLocaleString();
 }
 
 function displayMatches() {
@@ -45,7 +46,7 @@ function displayMatches() {
         `;
     })
     .join("");
-  console.log(html);
+
   suggestions.innerHTML = html;
 }
 
