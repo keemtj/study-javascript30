@@ -16,7 +16,7 @@ function makeGreen() {
 console.log("hello");
 
 // Interpolated
-console.log("hello I am a %s string!", "poop");
+console.log("hello I am a %s string!", "POOP");
 
 // Styled
 console.log(
@@ -73,13 +73,6 @@ console.count("Wes");
 console.count("Wes");
 console.count("Steve");
 console.count("Wes");
-console.count("Steve");
-console.count("Steve");
-console.count("Wes");
-console.count("Wes");
-console.count("Wes");
-console.count("Steve");
-console.count("Steve");
 console.count("Steve");
 console.count("Steve");
 
