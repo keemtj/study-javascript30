@@ -78,12 +78,19 @@ console.count("Steve");
 
 // timing
 console.time("fetching data");
-fetch("https://api.github.com/users/keemtj")
-  .then((res) => res.json())
-  .then((data) => {
-    console.timeEnd("fetching data");
-    console.log(data);
-  });
+let getData = {};
+
+const fetchData = () => {
+  fetch("https://api.github.com/users/keemtj")
+    .then((res) => res.json())
+    .then((data) => (getData = data))
+    .then(() => console.log("getData???", getData));
+  // .then((data) => {
+  //   console.timeEnd("fetching data");
+  //   console.log(data);
+  // });
+};
+fetchData();
 
 // table
 console.table(dogs);
