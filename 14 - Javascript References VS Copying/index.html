@@ -7,51 +7,167 @@
 </head>
 <body>
   <h2>Javascript Reference VS Copy!</h2>
+  <p>have a look at the Javascript console 💁🏻</p>
   <script>
     // start with strings, numbers and booleans
+    console.group('Numbers and String');
+    let age = 100;
+    let age2 = age;
+    console.group('numbers');
+    console.log('age', age, 'age2', age2);
+    age2 = 200;
+    console.log('age', age, 'age2', age2);
+    console.groupEnd();
 
+    let name = 'Wes';
+    let name2 = name;
+    console.group('String');
+    console.log('name:', name, 'name2:', name2);
+    name2 = 'wesley';
+    console.log('name:', name, 'name2:', name2);
+    console.groupEnd();
+    console.groupEnd('Numbers and String');
+
+    console.group('Array');
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
-
     // and we want to make a copy of it.
-
+    const team = players;
+    
     // You might think we can just do something like this:
-
+    console.group('Array copy');
+    console.log('players', players);
+    console.log('team', team);
+    team[3] = 'Lux';
+    console.log('changed team');
+    console.log('players', players);
+    console.log('team', team);
+    console.log('changed both');
+    console.groupEnd();
     // however what happens when we update that array?
-
     // now here is the problem!
-
     // oh no - we have edited the original array too!
-
     // Why? It's because that is an array reference,
     // not an array copy. They both point to the same array!
 
     // So, how do we fix this? We take a copy instead!
-
+    const team2 = players.slice();
+    team2[3] = 'Luxxxx';
+    console.group('slice()');
+    console.log('players', players);
+    console.log('team2', team2);
+    console.log('changed team2');
+    console.groupEnd();
     // one way
 
     // or create a new array and concat the old one in
-
+    const team3 = [].concat(players);
+    team3[3] = '3point!';
+    console.group('concat()');
+    console.log('players', players);
+    console.log('team3', team3);
+    console.log('changed team3');
+    console.groupEnd();
+    
     // or use the new ES6 Spread
+    const team4 = [...players];
+    team4[3] = 'heeee';
+    console.group('ES6 Spread');
+    console.log('players', players);
+    console.log('team4', team4);
+    console.log('changed team4');
+    console.groupEnd();
 
+    const team5 = Array.from(players);
+    team5[3] = 'cool';
+    console.group('Array.from()');
+    console.log('players', players);
+    console.log('team5', team5);
+    console.log('changed team5');
+    console.groupEnd();
+    console.groupEnd('Array');
     // now when we update it, the original one isn't changed
-
     // The same thing goes for objects, let's say we have a person object
-
     // with Objects
+
+    console.group('Object 1');
     const person = {
       name: 'Wes Bos',
       age: 80
     };
 
     // and think we make a copy:
+    const captain = person;
+    captain.number = 99;
+    console.group('Object copy');
+    console.log('person', person);
+    console.log('captain', captain);
+    console.groupEnd('copy');
 
     // how do we take a copy instead?
+    const cap2 = Object.assign({}, person, { number: 99, age: 12});
+    console.group('Object.assign()');
+    console.log('person', person);
+    console.log('cap2', cap2);
+    console.groupEnd();
 
     // We will hopefully soon see the object ...spread
-
+    const cap3 = { ...person, age: 12 };
+    console.group('ES6 Spread');
+    console.log('person', person);
+    console.log('cap3', cap3);
+    console.groupEnd();
+    console.groupEnd('Object 1');
     // Things to note - this is only 1 level deep - both for Arrays and Objects.
     // lodash has a cloneDeep method, but you should think twice before using it.
+
+    console.group('Object 2');
+    const original = {
+      name: 'John',
+      age: 30,
+      social: {
+        twitter: '@john-twit',
+        facebook: 'my.facebook'
+      }
+    };
+    const copy = Object.assign({}, original);
+    console.group('Object.assign, Depth 1');
+    console.log('original', original);
+    console.log('copy', copy);
+    copy.name = 'Jane';
+    console.log('changed copy.name');
+    console.log('original', original);
+    console.log('copy', copy);
+    console.log('changed copy');
+    console.groupEnd();
+
+    console.group('Object.assign, Depth 2');
+    console.log('original.social', original.social);
+    console.log('copy.social', copy.social);
+    copy.social.twitter = '@jane-twit';
+    console.log('changed copy.social.twitter');
+    console.log('original.social', original.social);
+    console.log('copy.social', copy.social);
+    console.log('changed both -> shallow copy');
+    console.groupEnd();
+
+    const copy2 = JSON.parse(JSON.stringify(original));
+    console.group('JSON.parse(JSON.stringify()), Depth 2');
+    console.log('original.social', original.social);
+    console.log('copy2.social', copy2.social);
+    copy2.social.twitter = '@coooooooooool';
+    console.log('changed copy2.social.twitter');
+    console.log('original.social', original.social);
+    console.log('copy2.social', copy2.social);
+    console.log('changed copy2 -> deep copy');
+    console.groupEnd();
+
+    const copy3 = { ...original, social: { ...original.social, twitter: '@johnAndJane' } };
+    console.group('Spread, changed social');
+    console.log('original.social', original.social);
+    console.log('copy3.social', copy3.social);
+    console.groupEnd();
+    console.groupEnd('Object 2');
   </script>
 </body>
 </html>
