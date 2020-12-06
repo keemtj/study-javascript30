@@ -4,8 +4,13 @@ const text = hero.querySelector("h1");
 const walk = 100; // 100px;
 
 const shadow = (e) => {
+  // console.log(e);
+  // hero 객체(div)의 offsetWidth, offsetHeight
   const { offsetWidth: width, offsetHeight: height } = hero;
+  // console.log(width, height);
+  // MouseEvent가 발생했을 때 그 객체에서 얻을 수 있는 property
   let { offsetX: x, offsetY: y } = e;
+  // console.log(x, y);
   if (hero !== e.target) {
     x += e.target.offsetLeft;
     y += e.target.offsetTop;
