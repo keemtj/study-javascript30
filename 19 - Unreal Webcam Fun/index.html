@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="index.js"></script>
+  <script src="index.js" defer></script>
   <title>Unreal Webcam Fun</title>
 </head>
 <body>
   <div class="photobooth">
     <div class="controls">
-      <button onClick="takePhoto()">Take Photo</button>
-<!--       <div class="rgb">
+      <button class='shoot'>Webcam start</button>
+      <button class="capture">Take Photo</button>
+      <!-- <div class="rgb">
         <label for="rmin">Red Min:</label>
         <input type="range" min=0 max=255 name="rmin">
         <label for="rmax">Red Max:</label>
