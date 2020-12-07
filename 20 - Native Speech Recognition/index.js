@@ -1,5 +1,5 @@
 // code
-const micBtn = document.querySelectorAll(".mic");
+// const micBtn = document.querySelectorAll(".mic");
 
 window.SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
