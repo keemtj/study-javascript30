@@ -25,6 +25,7 @@ body {
   transition: transform 0.5s;
 }
 
+/* add */
 .fixed-nav .site-wrap {
   transform: scale(1);
 }
@@ -54,6 +55,7 @@ nav {
   z-index: 1;
 }
 
+/* add */
 .fixed-nav nav {
   position: fixed;
   box-shadow: 0 5px rgba(0,0,0,0.1);
@@ -83,6 +85,7 @@ li.logo {
   font-size: 30px;
 }
 
+/* add */
 .fixed-nav li.logo {
   max-width: 500px;
 }
