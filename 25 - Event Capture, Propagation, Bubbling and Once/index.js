@@ -1,16 +1,21 @@
 // code
 const divs = document.querySelectorAll("div");
 const button = document.querySelector("button");
-// const logText = (e) => {
-//   console.log(e.target.classList.value);
-//   e.stopPropagation(); // stop bubbling
-// };
+const lis = document.querySelectorAll("li");
 
-function logText(e) {
-  // console.log(this);
-  console.log(this.classList.value);
+// logText
+// ES6
+const logText = (e) => {
+  console.log(e.target.classList.value);
   // e.stopPropagation(); // stop bubbling
-}
+};
+
+// ES5
+// function logText(e) {
+//   // console.log(this);
+//   console.log(this.classList.value);
+//   // e.stopPropagation(); // stop bubbling
+// }
 
 // capture: false(default)
 // capture: top to bottom
@@ -28,3 +33,5 @@ button.addEventListener(
   },
   { once: true }
 );
+
+lis.forEach((li) => li.addEventListener("click", logText));
