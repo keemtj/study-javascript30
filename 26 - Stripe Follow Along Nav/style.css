@@ -65,11 +65,11 @@ nav ul {
   display: none;
 }
 
-
 .trigger-enter .dropdown {
   display: block;
 }
 
+/* transition을 위해 */
 .trigger-enter-active .dropdown {
   opacity: 1;
 }
