@@ -37,6 +37,7 @@ body {
   perspective: 500px;
 }
 
+/* js에서 active class 추가하면 효과 적용 */
 .items.active {
   background: rgba(255,255,255,0.3);
   cursor: grabbing;
